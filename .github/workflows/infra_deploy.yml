@@ -34,17 +34,17 @@ jobs:
 
       - name: Initialize Terraform
         run: |
-          cd infra
+          cd .terraform
           terraform init
 
       - name: Run Terraform Plan
         if: ${{ github.event.inputs.TF_ACTION == 'plan' }}
         run: |
-          cd infra
+          cd .terraform
           terraform plan
 
       - name: Run Terraform Apply
         if: ${{ github.event.inputs.TF_ACTION == 'apply' }}
         run: |
-          cd infra
+          cd .terraform
           terraform apply -auto-approve
